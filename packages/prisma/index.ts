@@ -1,10 +1,19 @@
 import { PrismaClient } from "./generated/client/index.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
+import { z } from "zod";
 
 let prisma: PrismaClient | null = null;
 
 export const getPrismaClient = (databaseUrl: string) => {
+  const urlSchema = z.string().url();
+  const parseResult = urlSchema.safeParse(databaseUrl);
+
+  if (!parseResult.success) {
+    console.error("Invalid DATABASE_URL provided:", parseResult.error.format());
+    process.exit(1);
+  }
+
   if (!prisma) {
     const pool = new Pool({ connectionString: databaseUrl });
     const adapter = new PrismaPg(pool);

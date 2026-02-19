@@ -9,16 +9,17 @@ const t = initTRPC.create({
 export const router = t.router;
 export const publicProcedure = t.procedure;
 
+import { getPrismaClient } from "@manifest/prisma";
+
+const prisma = getPrismaClient(process.env.DATABASE_URL || "");
+
 export const appRouter = router({
   hello: publicProcedure.query(() => {
     return { message: "Hello from backend!" };
   }),
   getUsers: publicProcedure.query(async () => {
-    // Mock data for now, connect to prisma later if needed
-    return [
-      { id: 1, name: "Alice" },
-      { id: 2, name: "Bob" },
-    ];
+    const users = await prisma.user.findMany();
+    return users;
   }),
 });
 

@@ -35,7 +35,7 @@ function App() {
           <ul className="user-list">
             {users.data?.map((user) => (
               <li key={user.id} className="user-item">
-                <div className="user-avatar">{user.name[0]}</div>
+                <div className="user-avatar">{user.name?.[0]}</div>
                 <div className="user-info">
                   <span className="user-name">{user.name}</span>
                   <span className="user-id">ID: {user.id}</span>
