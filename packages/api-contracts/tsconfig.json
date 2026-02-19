@@ -1,0 +1,14 @@
+{
+  "extends": "../../packages/tsconfig/node.json",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "paths": {
+      "@apps/*": ["apps/*"],
+      "@packages/*": ["packages/*"],
+      "@manifest/prisma": ["packages/prisma/index.ts"],
+      "@manifest/api-contracts": ["packages/api-contracts/src/index.ts"]
+    },
+    "rootDir": "../.."
+  },
+  "include": ["src/**/*", "../../apps/backend/src/router.ts"]
+}

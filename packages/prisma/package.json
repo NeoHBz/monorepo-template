@@ -1,0 +1,40 @@
+{
+  "name": "@manifest/prisma",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.ts",
+      "import": "./index.ts",
+      "require": "./index.ts"
+    }
+  },
+  "scripts": {
+    "compile": "tsc --noEmit",
+    "build": "tsc --noEmit",
+    "prisma:generate": "bunx prisma generate --no-hints",
+    "prisma:migrate": "bunx prisma migrate dev",
+    "prisma:studio": "bunx prisma studio",
+    "prisma:push": "bunx prisma db push"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.2.0",
+    "@prisma/client": "7.2.0",
+    "@prisma/client-runtime-utils": "7.2.0",
+    "dotenv": "^17.2.3",
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "@manifest/tsconfig": "workspace:*",
+    "@types/node": "^25.3.0",
+    "@types/pg": "^8.10.9",
+    "bun-types": "latest",
+    "prisma": "7.2.0",
+    "typescript": "^5.6.0"
+  },
+  "peerDependencies": {
+    "pg": "^8.11.0"
+  }
+}

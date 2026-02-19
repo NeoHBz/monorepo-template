@@ -1,0 +1,17 @@
+{
+  "extends": "../../packages/tsconfig/node.json",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "paths": {
+      "@apps/*": ["apps/*"],
+      "@packages/*": ["packages/*"],
+      "@manifest/prisma": ["packages/prisma/index.ts"],
+      "@manifest/api-contracts": ["packages/api-contracts/src/index.ts"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../../packages/prisma/index.ts",
+    "../../packages/api-contracts/src/**/*"
+  ]
+}

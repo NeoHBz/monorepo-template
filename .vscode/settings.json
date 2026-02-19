@@ -1,0 +1,22 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/generated": true,
+    "**/.turbo": true,
+    "**/.next": true,
+    "**/*.tsbuildinfo": true,
+    "**/*.log": true,
+    "**/coverage": true
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/generated/**": true,
+    "**/.git/objects/**": true,
+    "**/.turbo/**": true,
+    "**/coverage/**": true
+  }
+}

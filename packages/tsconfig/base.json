@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "paths": {
+      "@apps/*": ["apps/*"],
+      "@packages/*": ["packages/*"],
+      "@manifest/prisma": ["packages/prisma/index.ts"],
+      "@packages/prisma/generated/client": ["packages/prisma/generated/client/index.ts", "packages/prisma/generated/client/index.js"],
+      "@packages/prisma/generated/client/*": ["packages/prisma/generated/client/*"],
+      "@manifest/api-contracts": ["packages/api-contracts/src/index.ts"]
+    },
+    "strict": true,
+    "composite": true,
+    "rootDir": "../..",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUncheckedIndexedAccess": true
+  }
+}
