@@ -25,12 +25,12 @@ async function main() {
     userData.map((user) =>
       prisma.user.create({
         data: user,
-      })
-    )
+      }),
+    ),
   );
 
   console.log(`Created ${users.length} users.`);
-  
+
   // Explicitly exit because the pg pool in index.ts is not exposed for closing
   // and Prisma with adapters doesn't close the pool on $disconnect
   process.exit(0);

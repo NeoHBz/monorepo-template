@@ -6,7 +6,10 @@
       "@apps/*": ["apps/*"],
       "@packages/*": ["packages/*"],
       "@repo/prisma": ["packages/prisma/index.ts"],
-      "@packages/prisma/generated/client": ["packages/prisma/generated/client/index.ts", "packages/prisma/generated/client/index.js"],
+      "@packages/prisma/generated/client": [
+        "packages/prisma/generated/client/index.ts",
+        "packages/prisma/generated/client/index.js"
+      ],
       "@packages/prisma/generated/client/*": ["packages/prisma/generated/client/*"],
       "@repo/api-contracts": ["packages/api-contracts/src/index.ts"]
     },
