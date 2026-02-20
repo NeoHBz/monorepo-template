@@ -9,7 +9,7 @@ const t = initTRPC.create({
 export const router = t.router;
 export const publicProcedure = t.procedure;
 
-import { getPrismaClient } from "@manifest/prisma";
+import { getPrismaClient } from "@repo/prisma";
 
 const prisma = getPrismaClient(process.env.DATABASE_URL || "");
 

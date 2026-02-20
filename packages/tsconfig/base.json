@@ -5,10 +5,10 @@
     "paths": {
       "@apps/*": ["apps/*"],
       "@packages/*": ["packages/*"],
-      "@manifest/prisma": ["packages/prisma/index.ts"],
+      "@repo/prisma": ["packages/prisma/index.ts"],
       "@packages/prisma/generated/client": ["packages/prisma/generated/client/index.ts", "packages/prisma/generated/client/index.js"],
       "@packages/prisma/generated/client/*": ["packages/prisma/generated/client/*"],
-      "@manifest/api-contracts": ["packages/api-contracts/src/index.ts"]
+      "@repo/api-contracts": ["packages/api-contracts/src/index.ts"]
     },
     "strict": true,
     "composite": true,

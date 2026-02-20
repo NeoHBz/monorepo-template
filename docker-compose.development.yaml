@@ -35,9 +35,9 @@ services:
     command: >
       sh -c "
         bun install &&
-        bun run --filter @manifest/prisma prisma:generate &&
-        bun run --filter @manifest/prisma prisma:push &&
-        bun run --filter @manifest/prisma seed
+        bun run --filter @repo/prisma prisma:generate &&
+        bun run --filter @repo/prisma prisma:push &&
+        bun run --filter @repo/prisma seed
       "
 
   backend:

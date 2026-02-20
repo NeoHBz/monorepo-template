@@ -1,6 +1,6 @@
 import { createTRPCProxyClient, httpBatchLink, loggerLink } from "@trpc/client";
 import * as SuperJSON from "superjson";
-import type { AppRouter } from "@manifest/api-contracts";
+import type { AppRouter } from "@repo/api-contracts";
 
 // Safe SuperJSON import for React Native / Metro environment
 // @ts-ignore

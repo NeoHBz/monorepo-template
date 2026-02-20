@@ -1,5 +1,5 @@
 {
-  "name": "@manifest/eslint-config",
+  "name": "@repo/eslint-config",
   "version": "1.0.0",
   "main": "index.mjs",
   "dependencies": {

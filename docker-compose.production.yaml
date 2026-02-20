@@ -32,8 +32,8 @@ services:
         condition: service_healthy
     command: >
       sh -c "
-        bun run --filter @manifest/prisma prisma:generate &&
-        bun run --filter @manifest/prisma prisma:push
+        bun run --filter @repo/prisma prisma:generate &&
+        bun run --filter @repo/prisma prisma:push
       "
     networks:
       - internal_network

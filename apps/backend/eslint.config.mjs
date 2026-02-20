@@ -1,4 +1,4 @@
-import sharedConfig from "@manifest/eslint-config";
+import sharedConfig from "@repo/eslint-config";
 
 export default [
   ...sharedConfig,

@@ -5,8 +5,8 @@
     "paths": {
       "@apps/*": ["apps/*"],
       "@packages/*": ["packages/*"],
-      "@manifest/prisma": ["packages/prisma/index.ts"],
-      "@manifest/api-contracts": ["packages/api-contracts/src/index.ts"]
+      "@repo/prisma": ["packages/prisma/index.ts"],
+      "@repo/api-contracts": ["packages/api-contracts/src/index.ts"]
     },
     "rootDir": "../.."
   },
