@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "files": [
     "base.json",
-    "node.json"
+    "node.json",
+    "react.json"
   ]
 }

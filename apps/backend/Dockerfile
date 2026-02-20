@@ -22,4 +22,4 @@ ENV NODE_ENV=production
 
 EXPOSE 3000
 
-CMD ["bun", "run", "apps/backend/src/index.ts"]
+CMD ["bun", "run", "build/apps/backend/src/index.js"]

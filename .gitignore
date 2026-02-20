@@ -47,4 +47,4 @@ yarn-error.log*
 # Postgres
 infrastructure/postgres/postgres_data
 
-.temp/
+.tmp/
