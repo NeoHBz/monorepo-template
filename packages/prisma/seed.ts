@@ -1,6 +1,4 @@
-import { getPrismaClient } from "./index";
-
-const prisma = getPrismaClient(process.env.DATABASE_URL || "");
+import { prisma } from "./index";
 
 async function main() {
   if (!prisma) {
@@ -23,7 +21,7 @@ async function main() {
   // Create users
   const users = await Promise.all(
     userData.map((user) =>
-      prisma.user.create({
+      prisma!.user.create({
         data: user,
       }),
     ),

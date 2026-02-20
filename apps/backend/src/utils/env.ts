@@ -12,16 +12,17 @@ const envSchema = z.object({
 });
 
 const parsedEnv = skipDatasource
-  ? { success: true, data: {} as any }
+  ? { data: {} as z.infer<typeof envSchema>, success: true }
   : envSchema.safeParse(process.env);
 
 if (!skipDatasource && !parsedEnv.success) {
   console.error("Environment validation failed");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   console.error((parsedEnv as any).error.flatten().fieldErrors);
   process.exit(1);
 }
 
-export const env = parsedEnv.data;
+export const env = parsedEnv.data!;
 
 export const config = {
   skipDatasource,

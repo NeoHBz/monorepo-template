@@ -1,7 +1,8 @@
-import { PrismaClient } from "./generated/client/index.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import { z } from "zod";
+
+import { PrismaClient } from "./generated/client/index.js";
 
 let prisma: PrismaClient | null = null;
 

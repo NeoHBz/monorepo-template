@@ -1,9 +1,7 @@
+import type { AppRouter } from "@repo/api-contracts";
 import { createTRPCProxyClient, httpBatchLink, loggerLink } from "@trpc/client";
 import * as SuperJSON from "superjson";
-import type { AppRouter } from "@repo/api-contracts";
 
-// Safe SuperJSON import for React Native / Metro environment
-// @ts-ignore
 const transformer = SuperJSON.default || SuperJSON;
 
 if (!transformer) {
@@ -15,6 +13,7 @@ if (!transformer) {
 export const createApiClient = (config: {
   apiUrl: string;
   getToken?: () => Promise<string | null>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   transformer?: any;
 }) => {
   const authHeader = async () => {

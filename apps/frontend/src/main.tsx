@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { httpBatchLink } from "@trpc/client";
-import superjson from "superjson";
-import App from "./App";
-import "./index.css";
-import { trpc } from "@apps/frontend/src/utils/trpc";
-import { env } from "@apps/frontend/src/utils/env";
+import { httpBatchLink } from "@trpc/react-query";
+import SuperJSON from "superjson";
+
+import App from "@/App";
+import { env } from "@/utils/env";
+import { trpc } from "@/utils/trpc";
+
+import "@/index.css";
 
 const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   const [queryClient] = useState(() => new QueryClient());
@@ -15,7 +17,7 @@ const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
       links: [
         httpBatchLink({
           url: env.VITE_API_URL || "http://localhost:3000/trpc",
-          transformer: superjson,
+          transformer: SuperJSON,
         }),
       ],
     }),

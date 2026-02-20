@@ -1,6 +1,7 @@
-import express from "express";
-import cors from "cors";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
+import cors from "cors";
+import express from "express";
+
 import { appRouter } from "@apps/backend/src/router";
 import { env } from "@apps/backend/src/utils/env";
 
@@ -14,7 +15,7 @@ app.use(
   createExpressMiddleware({
     router: appRouter,
     createContext: () => ({}),
-  }) as any,
+  }),
 );
 
 app.get("/", (_req, res) => {

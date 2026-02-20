@@ -2,7 +2,7 @@
 
 import type { AppRouter } from "./routers/app";
 
-export type { AppRouter } from "./routers/app";
+export type { AppRouter };
 
 export type AppRouterContract = {
   app: AppRouter;
