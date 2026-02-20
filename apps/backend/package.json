@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "bun run --filter @repo/prisma prisma generate",
     "dev": "bun run --hot src/index.ts",
     "compile": "tsc --noEmit",
     "build": "tsc --noEmit",

@@ -20,13 +20,13 @@ export default tseslint.config(
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  boundaries.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,tsx}"],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
@@ -43,8 +43,8 @@ export default tseslint.config(
         }
       },
       "boundaries/elements": [
-        { type: "app", pattern: "apps/*" },
-        { type: "package", pattern: "packages/*" },
+        { type: "app", pattern: "apps/*", mode: "folder" },
+        { type: "package", pattern: "packages/*", mode: "folder" },
       ]
     },
     rules: {
@@ -53,6 +53,7 @@ export default tseslint.config(
       // Enforce `import type` usage
       "@typescript-eslint/consistent-type-imports": ["error", { prefer: "type-imports", fixStyle: "separate-type-imports" }],
       "@typescript-eslint/no-import-type-side-effects": "error",
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       
       // Disallow relative imports, but allow same-directory index resolution
       "no-restricted-imports": [
@@ -61,10 +62,6 @@ export default tseslint.config(
           "patterns": [
             {
               "group": ["../*"],
-              "message": "Relative imports are not allowed. Please use '@/*' or '@apps/*' or '@packages/*' absolute imports."
-            },
-            {
-              "group": ["./*"],
               "message": "Relative imports are not allowed. Please use '@/*' or '@apps/*' or '@packages/*' absolute imports."
             }
           ]
@@ -78,8 +75,10 @@ export default tseslint.config(
           "groups": [
             // Node.js built-ins.
             ["^node:"],
-            // Packages. `react` related packages come first.
-            ["^react", "^@?\\w"],
+            // Unscoped packages (e.g. cors, express).
+            ["^[^@]\\w*"],
+            // Scoped packages (e.g. @trpc/..., @prisma/...).
+            ["^@\\w[^/]*/"],
             // Internal packages.
             ["^(@apps|@packages)(/.*|$)"],
             // Internal aliases.
@@ -99,6 +98,7 @@ export default tseslint.config(
       "import/first": "error",
       "import/newline-after-import": "error",
       "import/no-duplicates": "error",
+      "import/no-cycle": "warn",
 
       // Boundaries rules
       "boundaries/element-types": [
@@ -110,7 +110,7 @@ export default tseslint.config(
             { from: ["package"], allow: ["package"] }
           ]
         }
-      ]
+      ],
     }
   }
 );

@@ -1,0 +1,1 @@
+Read all project specific rules and AI boundaries from `.ai/README.md`. It acts as the entrypoint for loading baseline constraints, repository context (`repo_context.md`), and coding standards.
