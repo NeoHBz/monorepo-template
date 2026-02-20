@@ -2,12 +2,10 @@ import express from "express";
 import cors from "cors";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { appRouter } from "@apps/backend/src/router";
-import dotenv from "dotenv";
-
-dotenv.config({ quiet: true });
+import { env } from "@apps/backend/src/utils/env";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = env.PORT || 3000;
 
 app.use(cors());
 

@@ -6,6 +6,7 @@ import superjson from "superjson";
 import App from "./App";
 import "./index.css";
 import { trpc } from "@apps/frontend/src/utils/trpc";
+import { env } from "@apps/frontend/src/utils/env";
 
 const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
   const [queryClient] = useState(() => new QueryClient());
@@ -13,7 +14,7 @@ const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: import.meta.env.VITE_API_URL || "http://localhost:3000/trpc",
+          url: env.VITE_API_URL || "http://localhost:3000/trpc",
           transformer: superjson,
         }),
       ],
