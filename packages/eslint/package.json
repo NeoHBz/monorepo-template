@@ -2,6 +2,7 @@
   "name": "@repo/eslint-config",
   "version": "1.0.0",
   "main": "index.mjs",
+  "types": "index.d.mts",
   "dependencies": {
     "eslint-plugin-boundaries": "^5.4.0",
     "globals": "^15.0.0",
